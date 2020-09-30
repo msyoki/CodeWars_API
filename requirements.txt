@@ -7,6 +7,7 @@ Brlapi==0.7.0
 certifi==2019.11.28
 chardet==3.0.4
 click==7.1.2
+<<<<<<< HEAD
 command-not-found==0.3
 cryptography==2.8
 cupshelpers==1.0
@@ -34,6 +35,13 @@ future==0.18.2
 gunicorn==20.0.4
 httplib2==0.14.0
 idna==2.8
+=======
+colorama==0.4.3
+Flask==1.1.2
+Flask-Login==0.5.0
+Flask-Script==2.0.6
+Flask-SQLAlchemy==2.4.4
+>>>>>>> 13e084b68928f37839856e37bc09b79140b944be
 isort==5.5.3
 itsdangerous==1.1.0
 Jinja2==2.11.2
@@ -81,7 +89,10 @@ SecretStorage==2.3.1
 simplejson==3.16.0
 six==1.15.0
 SQLAlchemy==1.3.19
+<<<<<<< HEAD
 systemd-python==234
+=======
+>>>>>>> 13e084b68928f37839856e37bc09b79140b944be
 toml==0.10.1
 ubuntu-advantage-tools==20.3
 ubuntu-drivers-common==0.0.0
