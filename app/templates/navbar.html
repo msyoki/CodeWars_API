@@ -46,22 +46,10 @@
                         <a class="nav-link" href="/"> <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <ul class="navbar-nav my-2 my-lg-0">
-                           <li class="nav-item">
-                        <a class="nav-link login-text text-black" href="/login"style="font-size:30px;margin-right:20%">Login</a>
-                    </li>
-                             <li class="nav-item">
-                        <a class="nav-link login-text text-black" href="/user"style="font-size:30px;margin-right:20%">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link login-text text-black" href="/logout"style="font-size:30px;margin-left:20%">Log out</a>
-                    </li>
-                </ul>
             </div>
         </nav>
                 <ul class="nav navbar-nav">
                     <li><a href="/">Home page</a></li>
-                    <li><a href="{{url_for('main.assessments')}}">Assessments</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -69,7 +57,7 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{current_user.username| capitalize}} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-                            <li><a href="{{url_for('main.user_assessments',uname=current_user.username)}}">COMPLETED ASSESSMENTS</a></li>
+                            <!-- <li><a href="{{url_for('main.user_assessments',uname=current_user.username)}}">COMPLETED ASSESSMENTS</a></li> -->
                             <li role="separator" class="divider"></li>
                             <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                         </ul>
