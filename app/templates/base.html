@@ -1,14 +1,31 @@
-{% extends 'bootstrap/base.html'%}
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <title>CodeWars</title>
 </head>
 <body>
-    <div class="container">
+    <header class= 'container site-header'>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a href="/" class="navbar-brand"><span>CODEWARS</span></a>
+            <button type="button" class="navbar-toggler " data-toggle="collapse" data-target="#navbarCollapse" ">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse" >
+                <div class="navbar-nav mr-auto">
+                  <a  href="/" class="nav-item nav-link active"><span> Home</span></a>
+                  <a href="/about" class="nav-item nav-link"><span>About</span></a> 
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container" id="main">
         {% block content %}{% endblock %}
     </div>
 </body>
