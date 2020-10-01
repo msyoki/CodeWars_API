@@ -1,20 +1,14 @@
 {% extends 'base.html'%}
-
 {% block content%}
-{% block styles %}
-{{super()}}
-<link rel="stylesheet" href="{{url_for('static',filename='css/particle.css')}}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-{% endblock %}
 <div class="bgimage">
     <div class="p-3 p-md-5 m-md-3 text-center bg-transparent">
         <div class="col-md-12 p-lg-5 mx-auto my-5">
             <h1 class="display-4 font-weight-normal text-white"style="font-size:30px"></h1>
-            <p class="lead font-weight-normal text-white"style="font-size:30px">Welcome to My Blogs Website.</p>
-            <p style="font-size:30px;color:white">A site where you can view different people's Blogs and also get a chance to create your own Blog.</p>
+            <img src="https://pythonatrix.com/wp-content/uploads/2019/10/codewars1.png" alt="codewars" width="200px" height="200px"><hr>
+            <p class="lead font-weight-normal "style="font-size:30px">Welcome to <span>CodeWars</span> API.</p>
+            <p style="font-size:30px;">A site where you can have access to codewars challenges and  share your solutions comments and likes on posted solutions</p>
             <div id="buttons d-block mx-auto">
-                <a class="btn btn-outline-secondary text-white" href="/new_post"style="font-size:30px">New Blog</a>
-                <a class="btn btn-outline-secondary text-white" href="/posts"style="font-size:30px">View Blogs</a>
+                <a class="btn btn-success " href="{{url_for('main.challenges')}}"style="font-size:30px">Get Started</a>
             </div>
         </div>
     </div>

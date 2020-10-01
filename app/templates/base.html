@@ -1,107 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- {% block styles%} -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/particle.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap4/css/bootstrap.min.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <!-- {% endblock %} -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 </head>
 <body>
-        <div class="navbar navbar-dark" role="navigation" style="margin-bottom:2; border-bottom: 1px solid; background-color: 00/#2EA67C;">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="/" class="navbar-brand"> CODEWARS_API</a>
-                    </div>
-                    <div class="navbar-collapse collapse"><nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand text-white" href="/" id="logo"style="font-size:40px">CodeWars</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-                                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon text-white"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarToggler">
-                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/"> <span class="sr-only">(current)</span></a>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav my-2 my-lg-0">
-                                       <li class="nav-item">
-                                    <a class="nav-link login-text text-black" href="/login"style="font-size:30px;margin-right:20%">Login</a>
-                                </li>
-                                         <li class="nav-item">
-                                    <a class="nav-link login-text text-black" href="/user"style="font-size:30px;margin-right:20%">Profile</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link login-text text-black" href="/logout"style="font-size:30px;margin-left:20%">Log out</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                              <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand text-white" href="/" id="logo"style="font-size:40px">CodeWars</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-                                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon text-white"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarToggler">
-                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="/"> <span class="sr-only">(current)</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                            <ul class="nav navbar-nav">
-                                <li><a href="/">Home page</a></li>
-                            </ul>
-            
-                            <ul class="nav navbar-nav navbar-right">
-                                {% if current_user.is_authenticated %}
-                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{current_user.username| capitalize}} <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-                                        <!-- <li><a href="{{url_for('main.user_assessments',uname=current_user.username)}}">COMPLETED ASSESSMENTS</a></li> -->
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-                                    </ul>
-                                </li>
-                                {% else %}
-                                <li><a href="{{url_for('auth.login')}}">Log in</a></li>
-                            </ul>
-                            {%endif%}
-                        </div>
+    <header class= ' container site-header'>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" >
+            <h1><a href="/" class="navbar-brand"><span>CodeWars </span> API</a></h1>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    <a href="/" class="nav-item nav-link active">Home</a>
+                    <a href="/about" class="nav-item nav-link">About</a>
                 </div>
+                <!--Navbar to the right signin/signup-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li ><a href="{{url_for('main.profile',uname=current_user.username)}}" style="color:white;padding:15px;font-weight: bold;color:#D3D0CB;">{{current_user.username}}</a></li>
+                    <div>
+                    <a href="{{url_for('auth.register')}}"  style="color:white;padding:10px;font-weight: bold;">Sign-up</a>
+                    </div>
+                    {% if current_user.is_authenticated %}
+                    
+                    <li><a href="{{url_for('auth.logout')}}" style="color:white;padding: 10px;;font-weight: bold;">Sign-out</a></li>
+                    {% else %}
+                    <li><a href="{{url_for('auth.login')}}" style="color:white;padding: 10px;;font-weight: bold;">Sign-in</a></li>
+                    {%endif%}
+                </ul>
             </div>
-            
-{% block content%}
-{% endblock %}
-{% block scripts%}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
-<script src="particles.js" type="text/javascript"></script>
-<script src="app.js" type="text/javascript"></script>
-{% endblock %}
+        </nav>
+    </header>
+    <main class="conatainer">
+        {% block content%}{% endblock content %}
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
+<!-- Footer -->
+<footer class="page-footer font-small pt-4" style="background-color: #d62828;color: white;padding-top: 100px;opacity: 0.8;">
+
+    <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+  
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold">Codewars</h5>
+          <h6 class="font-weight-bold">Contacts:</h6>
+          <h6 >Email:<h6>
+          <h6>Tel:</h6>
+
+          <h6 class="font-weight-bold">Address:</h6>
+          <h6>Nairobi,Kenya</h6>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Text -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> <span style="color: white;">Codewars</span></a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
 </html>
