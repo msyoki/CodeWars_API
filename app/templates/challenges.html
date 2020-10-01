@@ -1,1 +1,46 @@
 {% extends 'base.html'%}
+
+
+{%  block content %}
+
+    <div style="padding-top:100px;padding-bottom: 200px;">
+        <div class="card" >
+            <h5 class="card-header">Easy</h5>
+            <div class="card-body">
+            <h5 class="card-title">Codewars Leaderboard Climber</h5>
+            <p class="card-text">In this kata you will be given a username and their score, your score (not your real score) and you need to calculate how many kata you need to complete to beat their score, by 1 point exactly. As this is the easy version (harder one to folow at some point in the future), let's assume only Beta kata and 8kyu kata are available. Worth 3 and 1 point respectively.
+        Return a string like this: 'To beat "user"'s score, I must complete "x" Beta kata and "y" 8kyu kata.'.
+        If the total number of kata you need to complete > 1000, add 'Dammit!' to the end of the string also - like so: 'To beat "user"'s score, I must complete 'x' Beta kata and 'y' 8kyu kata. Dammit!'.
+        If your score is higher than the user's already, return 'Winning!'. If they are equal, return 'Only need one!'. You are looking to complete as few kata as possible to get to your target</p>
+            <a href="{{url_for('main.new_post')}}" class="btn btn-success">Start challenge </a><a href="{{url_for('main.leaderboard_climbers')}}"><button class="btn btn-info"style="float: right;">Posted solutions</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h5 class="card-header">Medium</h5>
+            <div class="card-body">
+              <h5 class="card-title">Highest and lowest</h5>
+              <p class="card-text">In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+          Notes:
+          <ul> 
+          <li> All numbers are valid Int32, no need to validate them.
+          <li>There will always be at least one number in the input string.
+          <li> Output string must be two numbers separated by a single space, and highest number is first.
+            </ul></p>
+            <a href=" {{url_for('main.new_post')}}" class="btn btn-success">Start challenge</a><a href="{{url_for('main.highest_and_lowest')}}"><button class="btn btn-info"style="float: right;">Posted solutions</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h5 class="card-header">Difficult</h5>
+            <div class="card-body">
+              <h5 class="card-title">Two Oldest Ages</h5>
+              <p class="card-text">The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age, oldest age].
+          The order of the numbers passed in could be any order. The array will always include at least 2 items.</p>
+              <a href="{{url_for('main.new_post')}}" class="btn btn-success">Start challenge</a><a href="{{url_for('main.two_oldest_ages')}}"><button class="btn btn-info"style="float: right;">Posted solutions</button></a>
+            </div>
+          </div>
+    </div>
+
+  {% endblock %}
+
