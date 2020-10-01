@@ -1,0 +1,21 @@
+{% macro displayPosts(posts_list)%}
+{%for post in posts_list%}
+    <div class="card" style="width: 30rem;color: black; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+        <div class="card-body">
+          <h5 class="card-title">{{post.post_title}}:</h5>
+          <p class="card-text" >"{{post.post_content| truncate(100)}}"</p>
+          <small class="card-subtitle mb-2 text-muted">Author: {{post.user.username}}</small><hr>
+          <a href="/post/{{post.id}}" class="card-link">click for more...</a>
+        </div>
+    </div><br>
+{%endfor%}
+{%endmacro%}
+
+{%macro displayComments(comments_list)%}
+{%for comment in comments_list%}
+    <div class="col-md-12">
+        <h5>{{comment.user.username}}</h5>
+        <p>{{comment.comment}}</p>
+    </div>
+{%endfor%}
+{%endmacro%}
