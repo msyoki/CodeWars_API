@@ -4,7 +4,7 @@ from ..models import User,Post,Comment
 from .forms import UpdateProfile,PostForm,CommentForm
 from flask_login import login_required,current_user
 from datetime import datetime
-from .. import db
+from .. import db,photos
 
 
 
