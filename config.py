@@ -5,6 +5,7 @@ class Config:
     General configuration parent class
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/codewars'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 class ProdConfig(Config):
     '''
