@@ -1,1 +1,16 @@
 {% extends 'base.html'%}
+
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="container" style="padding-top:100px;padding-bottom: 200px;"> 
+
+  <h2>Leaderboard Climbers<a href="{{url_for('main.challenges')}}"><button class="btn btn-info"style="float: right;margin-left:5px">back </button></a></h2> 
+  <hr>
+  <article class="media content-section">
+      <div class="media-body">
+        {{macro.displayPosts(posts)}}
+      </div>
+  </article>
+</div>
+{% endblock %}

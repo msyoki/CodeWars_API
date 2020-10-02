@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- Content block -->
+{%block content%}
+
+<div class="container" style="margin-bottom:150px; margin-top: 100px;"> 
+    <div >
+        <h3>{{post.post_title}}</h3>
+        <hr>
+        <p>"{{post.post_content}}"</p>
+        <br>
+        <p>Posted on {{date}} by {{post.user.username| capitalize}}</p>
+        <a href="/post/{{post.id}}?like=1">
+            <i class="btn btn-warning btn-sm" style="margin-right: 5px;">like</i>
+        </a>{{post.likes}} 
+        <a href="/post/{{post.id}}?dislike=1">
+            <i class="btn btn-warning btn-sm" style="margin-right: 5px;">dislike</i>
+        </a>{{post.dislikes}}
+
+    </div><hr>
+    <div >
+        <h4>Comments:</h4>
+        {{macro.displayComments(comments)}}
+        <br>
+        <hr>
+        {% if current_user.is_authenticated %}
+            {{ wtf.quick_form(comment_form) }}
+        {%endif%}
+       
+    </div>
+
+</div>
+{%endblock%}

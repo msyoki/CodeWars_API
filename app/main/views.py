@@ -4,10 +4,15 @@ from ..models import User,Post,Comment
 from .forms import UpdateProfile,PostForm,CommentForm
 from flask_login import login_required,current_user
 from datetime import datetime
-from .. import db
+<<<<<<< HEAD
+from .. import db,photos
 import requests
 from ..models import Challenge
 from ..requests import get_challenges
+=======
+from .. import db,photos
+
+>>>>>>> 25040e3740db257394d39f35a1a20a9296292bfd
 
 
 

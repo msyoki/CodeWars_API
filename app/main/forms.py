@@ -5,9 +5,9 @@ from wtforms.validators import Required
 
 class PostForm(FlaskForm):
 
-    title = StringField('Blog title',validators=[Required()])
-    text = TextAreaField('Text',validators=[Required()])
-    category = SelectField('Type',choices=[('leaderboard_climbers','Leaderboard climbers challenge'),('highest_and_lowest','Highest and lowest challenge'),('two_oldest_ages','Two oldest ages challenge')],validators=[Required()])
+    title = StringField('Code Language',validators=[Required()])
+    text = TextAreaField('Code',validators=[Required()])
+    category = SelectField('Challenge',choices=[('leaderboard_climbers','Leaderboard climbers challenge'),('highest_and_lowest','Highest and lowest challenge'),('two_oldest_ages','Two oldest ages challenge')],validators=[Required()])
     submit = SubmitField('Submit')
 
 class UpdateProfile(FlaskForm):
