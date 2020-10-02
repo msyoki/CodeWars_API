@@ -5,7 +5,9 @@ from .forms import UpdateProfile,PostForm,CommentForm
 from flask_login import login_required,current_user
 from datetime import datetime
 from .. import db
-
+import requests
+from ..models import Challenge
+from ..requests import get_challenges
 
 
 
@@ -14,10 +16,15 @@ def home():
     title= 'Home - Codewars API '
     return render_template('index.html',title=title)
 
-@main.route('/challenges')
+@main.route('/challenges', methods=['GET','POST'])
 @login_required
 def challenges():
-    return render_template('challenges.html')
+    r = requests.get('https://www.codewars.com/api/v1/code-challenges/:slug={}?access_key={}')
+
+    multiples=get_challenges('multiples-of-3-and-5')
+    print(multiples)
+
+    return render_template('challenges.html', multiples=multiples)
 
 @main.route('/about')
 def about():

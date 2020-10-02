@@ -5,7 +5,7 @@ from ..models import User
 from wtforms import ValidationError
 
 class RegistrationForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
+    email = StringField('Your Email Address',validators=[Required()])
     username = StringField('Enter your username',validators = [Required()])
     firstname = StringField('Enter your first name',validators = [Required()])
     lastname = StringField('Enter your last name',validators = [Required()])
@@ -22,7 +22,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('That username is taken')
 
 class LoginForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
+    email = StringField('Your Email Address',validators=[Required()])
     password = PasswordField('Password',validators =[Required()])
     remember = BooleanField('Remember me')
     submit = SubmitField('Sign In')

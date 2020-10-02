@@ -95,3 +95,24 @@ class Comment(db.Model):
     def get_comments(cls,post):
         comments = Comment.query.filter_by(post_id=post).all()
         return comments
+
+class Challenge:
+    '''
+    challenge class that instantiates challenge objects
+    '''
+    all_challenges=[]
+
+    def __init__(self,id,slug,category,publishedAt,languages,description):
+        self.id=id
+        self.slug=slug
+        self.category=category
+        self.publishedAt=publishedAt
+        self.languages=languages
+        self.description=description
+
+    def save_challenge(self):
+        Challenge.all_challenges.append(self)
+
+    @classmethod
+    def clear_reviews(cls):
+        Challenge.all_challenges.clear()

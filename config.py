@@ -4,8 +4,10 @@ class Config:
     '''
     General configuration parent class
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://msyoki:psql20*@localhost/codewars'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://daisy:4H@ppyfeet@localhost/codewars'
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    CODEWARS_BASE_URL ='https://www.codewars.com/api/v1/code-challenges/:slug={}?access_key={}'
+    CODEWARS_API_KEY=os.environ.key('CODEWARS_API_KEY')
 
 class ProdConfig(Config):
     '''
